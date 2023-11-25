@@ -53,6 +53,8 @@ git merge -m "Merge Message" AnotherBranchName
 # Push local branch to github to "origin".
 git push -u origin BranchName
 
+# Rename current branch.
+git branch -m NewBranchName
 
 # Set configuration values for your username and email
 git config --global user.name YOUR NAME
