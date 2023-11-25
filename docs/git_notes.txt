@@ -1,0 +1,59 @@
+## video referenced: https://youtu.be/tRZGeaHPoaw
+
+
+
+
+## git workflow
+git status
+git add --all
+git commit -m "A commit message"
+
+
+
+
+## git documentation
+https://git-scm.com/docs
+
+
+
+
+## Quick reference sheet
+# initalize current folder as a new git repo.
+git init
+
+# Lists what is & is not being tracked and
+# changes to files.
+git status
+
+# Adds all files to staging (both tracked and untracked).
+git add --all
+
+# Push staging enviornment to commit envirnment.
+git commit -m "A commit message"
+
+# View file differences between last commit and now.
+git diff
+
+
+# List branches. Shows what branch we are in.
+git branch
+
+# Switch branches.
+git switch BranchName
+
+# Create a new branch.
+git branch BranchName
+
+# Delete a branch.
+git branch -d BranchName
+
+# Merge another branch to current branch.
+git merge -m "Merge Message" AnotherBranchName
+
+# Push local branch to github to "origin".
+git push -u origin BranchName
+
+
+# Set configuration values for your username and email
+git config --global user.name YOUR NAME
+git config --global user.email YOUR EMAIL
