@@ -43,7 +43,7 @@ aggregate_df = plu_specific_df.groupby(plu_specific_df['BusinessDate']).aggregat
 
 # # Plot date by SoldQuantity.
 plt.plot(aggregate_df["BusinessDate"], aggregate_df["SoldQuantity"])
-plt.show()
+#plt.show()
 
 
 
@@ -70,3 +70,24 @@ print('\n')
 # 'Core' = 1
 # 'Seasonal' = 2
 #orginal_df['ItemType'] =
+
+## Identify best and worst stores based on top 25% and bottom 25%. (Mostly copied from partner b/c I don't know how to use github properly)
+aggregation_functions = { 'StoreID': 'first', 'ReceivedQuantity': 'sum', 'SoldQuantity': 'sum', 'EndQuantity': 'sum', 'LatestOrder': 'sum', 'StockedOut': 'sum'}
+store_stats = orginal_df.groupby(orginal_df['StoreID']).aggregate(aggregation_functions)
+
+# Calculate the sold quantity threshold for the top and bottom 25%.
+stats = store_stats['SoldQuantity'].describe()
+sold_quantity_threshold_top = stats['75%']
+sold_quantity_threshold_bottom = stats['25%']
+
+# Identify top and bottom 25% stores.
+top_25_percent_stores = store_stats[store_stats['SoldQuantity'] >= sold_quantity_threshold_top  ]
+bottom_25_percent_stores = store_stats[store_stats['SoldQuantity'] <= sold_quantity_threshold_bottom  ]
+
+
+print('\n\nTop 25%')
+print(top_25_percent_stores)
+
+print('\n\nBottom 25%')
+print(bottom_25_percent_stores)
+
